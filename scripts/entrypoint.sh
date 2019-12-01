@@ -21,10 +21,10 @@ echo "Done with startup"
 # when our certificates expire...
 while [ true ]; do
     echo "Run certbot renew"
-    /scripts/run_certbot_renew.sh
+    certbot renew --debug
 
-    # Sleep for 1 week
-    sleep 604810 &
+    # Sleep for 1 day
+    sleep 1d &
     SLEEP_PID=$!
 
     # Wait on sleep so that when we get ctrl-c'ed it kills everything due to our trap
